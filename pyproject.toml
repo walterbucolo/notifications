@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "notification-service"
+version = "0.1.0"
+description = ""
+authors = ["Walter Bucolo <bucolowalter@gmail.com>"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.7"
+psycopg = "^3.2.1"
+psycopg2-binary = "^2.9.9"
+
+
+[tool.poetry.group.dev.dependencies]
+ipdb = "^0.13.13"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
