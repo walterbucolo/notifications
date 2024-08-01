@@ -1,5 +1,10 @@
-from django.http import HttpResponse
+from notification.services.notifications import NotificationService
+from notification.gateway.gateway import Gateway
 
 
 def index(request):
-    return HttpResponse("Yup, this is the notification service.")
+    notification_service = NotificationService(gateway=Gateway)
+    notification_service.send("news", "123", "news 1")
+    notification_service.send("news", "123", "news 1")
+    notification_service.send("news", "123", "news 1")
+    notification_service.send("news", "123", "news 1")

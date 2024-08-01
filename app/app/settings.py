@@ -27,7 +27,6 @@ SECRET_KEY = "django-insecure-lta5^9-3dfygr=nyyqkf9vpm(b%s5@5d*$cf_$jt_=dho_69_f
 DEBUG = True
 
 ALLOWED_HOSTS = ("localhost", "0.0.0.0")
-print(ALLOWED_HOSTS)
 
 # Application definition
 
@@ -38,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "notification",
 ]
 
 MIDDLEWARE = [
@@ -130,3 +130,8 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REDIS_HOST = os.getenv("REDIS_HOST")
+REDIS_PORT = os.getenv("REDIS_PORT")
+REDIS_DB = os.getenv("REDIS_DB")
+REDIS_MAX_CONNECTIONS = os.getenv("REDIS_MAX_CONNECTIONS")

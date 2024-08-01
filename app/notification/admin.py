@@ -1,3 +1,7 @@
 from django.contrib import admin
+from notification.models import NotificationType, Rule
 
-# Register your models here.
+
+@admin.register(NotificationType, Rule)
+class NotificationTypeAdmin(admin.ModelAdmin):
+    pass
