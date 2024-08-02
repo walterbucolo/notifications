@@ -12,12 +12,6 @@ class RedisClient:
     @classmethod
     def get_client(cls):
         if cls._client is None:
-            print("Creating new Redis client")
-            print("<<<<settings>>>>")
-            print(settings.REDIS_HOST)
-            print(settings.REDIS_PORT)
-            print(settings.REDIS_DB)
-            print(settings.REDIS_MAX_CONNECTIONS)
             pool = redis.ConnectionPool(
                 host=settings.REDIS_HOST,
                 port=settings.REDIS_PORT,

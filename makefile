@@ -28,4 +28,8 @@ superuser:
 		docker-compose exec app python manage.py createsuperuser
 
 tests:
-		docker-compose exec app python manage.py test $(app)
+		docker-compose exec app coverage run --rcfile=.coveragerc manage.py test $(app)
+		docker-compose exec app coverage report
+		
+populate_database:
+		docker-compose exec app python manage.py populate_database
