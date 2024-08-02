@@ -17,9 +17,13 @@ class NotificationService:
         except NotificationType.DoesNotExist:
             raise NotificationTypeNotFound()
 
-        try:
-            rule = Rule.objects.get(notification_type=notification_type)
-        except Rule.DoesNotExist:
+        rule = (
+            Rule.objects.filter(notification_type=notification_type)
+            .order_by("-created_at")
+            .first()
+        )
+
+        if not rule:
             raise RuleNotFound()
 
         if RateLimiter(rule=rule).is_allowed(user_id):
